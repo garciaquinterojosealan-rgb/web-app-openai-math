@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora con OpenAI + LaTeX</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- MathJax para renderizar LaTeX -->
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+
+  <style>
+    body {
+      background: #f5f5f5;
+    }
+    .latex-box {
+      min-height: 60px;
+      padding: 10px;
+      background: #ffffff;
+      border-radius: 0.5rem;
+      border: 1px solid #dee2e6;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="#">Calculadora IA + LaTeX</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title mb-3">
+              Evaluar operación matemática con OpenAI
+            </h5>
+            <p class="text-muted">
+              Escribe una operación, por ejemplo:
+              <code>(3^2 + 4^2) / 2</code> o
+              <code>integral de x^2 desde 0 hasta 1</code>.
+            </p>
+
+            <!-- Campo para la operación -->
+            <div class="mb-3">
+              <label for="operationInput" class="form-label">
+                Operación matemática
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="operationInput"
+                placeholder="Ejemplo: (3*5 + 2)/7"
+              />
+            </div>
+
+            <!-- Botón -->
+            <div class="d-grid d-md-flex justify-content-md-end gap-2 mb-3">
+              <button id="btnClear" class="btn btn-outline-secondary">
+                Limpiar
+              </button>
+              <button id="btnEvaluate" class="btn btn-primary">
+                Evaluar con OpenAI
+              </button>
+            </div>
+
+            <!-- Mensajes de estado -->
+            <div id="statusMessage" class="mb-3 text-muted"></div>
+
+            <!-- Resultados -->
+            <h6>Resultado numérico:</h6>
+            <div class="latex-box mb-3" id="resultValue">
+              <span class="text-muted">Sin resultado aún…</span>
+            </div>
+
+            <h6>Expresión en LaTeX:</h6>
+            <div class="latex-box" id="resultLatex">
+              <span class="text-muted">Sin resultado aún…</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-3 text-center text-muted">
+          Desarrollado por Víctor Pinedo | Instituto Tecnológico de Pachuca
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (opcional, por si usas componentes interactivos) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <!-- Tu JS -->
+  <script src="./js/app.js"></script>
+</body>
+</html>
